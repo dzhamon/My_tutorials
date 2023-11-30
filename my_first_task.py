@@ -18,13 +18,13 @@ class MyApp:
     result = 0
 
     def first_number(self):
-        my_first_number = random.random()
-        self.show(my_first_number)
+        my_first_number = random.randint(5, 250)
+        self.show(str(my_first_number))
         label_result.config(text=str(my_first_number))
         label1.config(text=str(my_first_number), anchor='center')
 
     def sec_number(self):
-        my_sec_number = random.random()
+        my_sec_number = random.randint(5, 250)
         label_result.config(text=str(my_sec_number))
         self.sum_sign_num.append(my_sec_number)
         label2.config(text=str(my_sec_number), anchor='center')
@@ -53,16 +53,8 @@ class MyApp:
     def calculate(self):
         label4.config(text='')
         label_result.config(text='')
-        if self.sum_sign_num[2] == '+':
-            self.result = self.sum_sign_num[0] + self.sum_sign_num[1]
-        elif self.sum_sign_num[2] == '-':
-            self.result = self.sum_sign_num[0] - self.sum_sign_num[1]
-        elif self.sum_sign_num[2] == '*':
-            self.result = self.sum_sign_num[0] * self.sum_sign_num[1]
-        else:
-            self.result = self.sum_sign_num[0] / self.sum_sign_num[1]
-        # print('Первое число =', sum_sign_num[0])
-        # print('Второе число = ', sum_sign_num[1])
+        calc_str = (str(self.sum_sign_num[0])+str(self.sum_sign_num[2])+str(self.sum_sign_num[1]))
+        self.result = eval(calc_str)
         # print('Результат = ', result)
         label4.config(text=str(self.result))
         label_result.config(text=str(self.result))
