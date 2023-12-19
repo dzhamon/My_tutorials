@@ -41,8 +41,10 @@ if __name__ == '__main__':
 	olga = Teacher('Olga Mikhaylovna', 38, 'teacher','disign')
 	
 
-print('-------------------------------')
+
 print(f"{artyom.name} is {artyom.job} and his student-id is {artyom.student_id}")
+
+print('-------------------------------')
 
 objects = (sarvar, turob, anvar, artyom, bekmurod, olga)
 for obj in objects:
