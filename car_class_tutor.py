@@ -1,4 +1,4 @@
-class Car():
+class Car:
 	def __init__(self, make, model, year):
 		self.make = make
 		self.model = model
@@ -12,19 +12,33 @@ class Car():
 	
 	def read_odometer(self):
 		"""выводит пробег"""
-		print(f"This car has {self.odometer_reading} miles on it.")
+		print(f"Пробег машины составляет {self.odometer_reading} километровю")
 		
 	def update_odometer(self, mileage): # это изменение значения атрибута в коде
 		self.odometer_reading = mileage
+		
+class ElectricCar(Car):
+	def __init__(self, make, model, year, battery_size):
+		super().__init__(make, model, year)
+		self.battery_size = battery_size
+	def charge_battery(self):
+		return f"Размер батареи авто {self.battery_size} ампер"
 	
-my_new_car = Car('audi','A4', '2019')
-print(my_new_car.get_descriptive_name())
-my_new_car.read_odometer()
-my_new_car.odometer_reading = 23 # это прямое изменение значения атрибута
-my_new_car.read_odometer()
-my_new_car.update_odometer(23000) # в метод update_odometer передается значение пробега
-my_new_car.read_odometer()
-
+	def check_battery_status(self, discharge):
+		self.chrg_batt -= discharge
+	
+	
+my_car = Car('Chevrolet','Lacetty', '2009')
 my_old_car = Car('Moskvich', '412', 1972)
+my_collegue_car = ElectricCar('BWD', 'Cherry', '2023', 9000)
+
+print(my_collegue_car.get_descriptive_name())
+
+my_car.odometer_reading = 365000 # это прямое изменение значения атрибута
+my_car.read_odometer()
+my_car.update_odometer(8000) # в метод update_odometer передается значение пробега (mileage)
+my_car.read_odometer()
+
 print(my_old_car.get_descriptive_name())
-print(my_old_car.read_odometer())
+
+
