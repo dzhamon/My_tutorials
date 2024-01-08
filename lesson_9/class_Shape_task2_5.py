@@ -40,10 +40,14 @@ class Triangle(Shape):
 
 
 class Rectangle(Shape):
-	def rect_area(self):
+
+	def __init__(self, size1, size2):
+		super().__init__(size1, size2)
 		self.area = self.size1 * self.size2
+	def get_rect_area(self):
 		return f"Площадь прямоугольника {self.area}"
 	
 	def perimetr(self):
+		print(self.area)
 		self.perim = (self.size1 + self.size2) * 2
 		return f"Периметр прямоугольника равен {self.perim}"
